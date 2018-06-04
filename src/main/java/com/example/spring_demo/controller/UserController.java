@@ -2,6 +2,7 @@ package com.example.spring_demo.controller;
 
 import com.example.spring_demo.controller.base.BaseController;
 import com.example.spring_demo.po.User;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,5 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/users")
+@Api(description = "用户")
 public class UserController extends BaseController<User,String>{
 }

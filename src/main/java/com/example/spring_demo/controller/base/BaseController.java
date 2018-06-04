@@ -1,6 +1,7 @@
 package com.example.spring_demo.controller.base;
 
 import com.example.spring_demo.service.base.BaseService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,11 @@ public abstract class BaseController<T,ID> {
      * 获取所有该资源: GET /resources
      */
     @GetMapping
+    @ApiOperation(value = "获取所有该资源")
+//    @ApiImplicitParams({
+//            @ApiImplicitParam(name = "username", value = "用户账号", required = true, dataType = "String", paramType = "query"),
+//            @ApiImplicitParam(name = "password", value = "用户密码", required = true, dataType = "String", paramType = "query")
+//    })
     public Iterable<T> findAll() {
         return baseService.findAll();
     }
@@ -28,6 +34,7 @@ public abstract class BaseController<T,ID> {
      * 获取单个资源: GET /resources/{id}
      */
     @GetMapping("/{id}")
+    @ApiOperation(value = "获取单个资源")
     public Optional<T> findById(@PathVariable("id") ID id) {
         return baseService.findById(id);
     }
@@ -63,6 +70,7 @@ public abstract class BaseController<T,ID> {
      * 注意不要漏掉末尾的"/",该符号是与/resources/{id}区分开来。若id恰好为count也不会导致冲突。
      */
     @GetMapping("/count/")
+    @ApiOperation(value = "获取改资源的数量")
     public long count() {
         return baseService.count();
     }

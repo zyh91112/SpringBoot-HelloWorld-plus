@@ -30,13 +30,17 @@ import java.util.List;
  */
 @Configuration
 public class SwaggerConfiguration {
+
+    private final String BASE_PACK = "com.example.spring_demo.controller";
+    private final String ADMIN_BASE_PACK = "com.example.spring_demo.controller.admin";
+
     @Bean
     public Docket userApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("普通用户api")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.bnuz.controller"))
+                .apis(RequestHandlerSelectors.basePackage(BASE_PACK))
                 .paths(PathSelectors.any())
                 .build()
                 .pathMapping("/")
@@ -57,10 +61,10 @@ public class SwaggerConfiguration {
     @Bean
     public Docket adminApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("后台管理员api")
+                .groupName("后台管理员Api")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.bnuz.controller.admin"))
+                .apis(RequestHandlerSelectors.basePackage(ADMIN_BASE_PACK))
                 .paths(PathSelectors.any())
                 .build()
                 .pathMapping("/")
@@ -102,9 +106,8 @@ public class SwaggerConfiguration {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("活动总台api文档")
-//                .description("简单优雅的restfun风格，http://blog.csdn.net/saytime")
-//                .termsOfServiceUrl("http://blog.csdn.net/saytime")
+                .title("api文档")
+                .description("swagger文档，http://blog.csdn.net/saytime")
                 .version("1.0")
                 .build();
     }
