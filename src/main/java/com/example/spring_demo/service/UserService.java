@@ -1,6 +1,6 @@
 package com.example.spring_demo.service;
 
-import com.example.spring_demo.po.User;
+import com.example.spring_demo.entity.po.User;
 import com.example.spring_demo.service.base.BaseService;
 import org.springframework.stereotype.Service;
 

@@ -51,7 +51,7 @@ public abstract class BaseController<T,ID> {
     // PUT /resources
     @RequestMapping(method = {RequestMethod.POST,RequestMethod.PUT})
     public <S extends T> S save(S s) {
-        return baseService.save(s);
+        return baseService.create(s);
     }
 
     @DeleteMapping("/{id}")
@@ -77,8 +77,8 @@ public abstract class BaseController<T,ID> {
 
 
 
-//    public <S extends T> Iterable<S> saveAll(Iterable<S> iterable) {
-//        return baseService.saveAll(iterable);
+//    public <S extends T> Iterable<S> createAll(Iterable<S> iterable) {
+//        return baseService.createAll(iterable);
 //    }
 //
 //    public boolean existsById(ID id) {

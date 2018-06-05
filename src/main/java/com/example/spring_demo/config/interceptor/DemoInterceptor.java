@@ -27,8 +27,7 @@ public class DemoInterceptor extends HandlerInterceptorAdapter{
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         long endTime = System.currentTimeMillis();
         long startTime = (Long) request.getAttribute("startTime");
-        logger.debug("本次请求处理时间为"+ (endTime - startTime) +"ms");
-//        System.out.println();
+        logger.info("本次请求处理时间为"+ (endTime - startTime) +"ms");
         request.removeAttribute("startTime");
         request.setAttribute("handlingTime",endTime-startTime);
     }
